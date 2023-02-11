@@ -19,7 +19,7 @@ def telegram_bot_sendtext(bot_message):
    return response.json()
 
 def getNameAndLendRate(tableRow):
-    return(tableRow[0].div.div.div.text, tableRow[8].div.div.span.text)
+    return(tableRow[0].div.div.div.text, tableRow[7].div.div.span.text)
 
 def getFraxLendRate():
     driver = webdriver.Firefox()
