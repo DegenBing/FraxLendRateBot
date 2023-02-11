@@ -41,8 +41,7 @@ def updateFraxLendRate():
     sort_data = sorted(datas.items(), key=lambda x: x[1], reverse=True)
     for data in sort_data:
         tgMsg += (str(data[0]+" "+str(data[1])+"\n"))
-    res = telegram_bot_sendtext(tgMsg)
-    print(res)
+    telegram_bot_sendtext(tgMsg)
 
 #alert when bot start
 telegram_bot_sendtext("Bot Reboot")
@@ -50,7 +49,8 @@ telegram_bot_sendtext("Bot Reboot")
 while True:
     try:
         updateFraxLendRate()
+        #30min
+        time.sleep(1800) 
     except Exception as e:
         telegram_bot_sendtext(str(e))
-    #30min
-    time.sleep(1800) 
+        time.sleep(30)
