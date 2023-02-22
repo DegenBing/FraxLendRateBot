@@ -27,6 +27,8 @@ def getFraxLendRate():
     time.sleep(10)
     html = driver.page_source
     soup = BeautifulSoup(html)
+    #quit to release memory
+    driver.quit()
     data = {}
     allTable = soup.find("div", class_="frax-Table-body").findAll("div", class_="frax-Table-row")
     for row in allTable:
