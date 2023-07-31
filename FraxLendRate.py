@@ -27,6 +27,7 @@ def getFraxLendRate():
     time.sleep(10)
     html = driver.page_source
     soup = BeautifulSoup(html,features="html.parser")
+    print(soup.prettify())
     #quit to release memory
     driver.quit()
     data = {}
