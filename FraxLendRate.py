@@ -24,7 +24,7 @@ def getNameAndLendRate(tableRow):
 def getFraxLendRate():
     driver = webdriver.Firefox()
     driver.get('https://app.frax.finance/fraxlend/available-pairs')
-    time.sleep(10)
+    time.sleep(30)
     html = driver.page_source
     soup = BeautifulSoup(html,features="html.parser")
     print(soup.prettify())
