@@ -26,7 +26,7 @@ def getFraxLendRate():
     driver.get('https://app.frax.finance/fraxlend/available-pairs')
     time.sleep(10)
     html = driver.page_source
-    soup = BeautifulSoup(html)
+    soup = BeautifulSoup(html,features="html.parser")
     #quit to release memory
     driver.quit()
     data = {}
