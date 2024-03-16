@@ -45,13 +45,13 @@ def getFraxLendRate():
 def updateFraxLendRate():
     tgMsg = ""
     datas = getFraxLendRate()
-    sort_data = sorted(datas.items(), key=lambda x: x[1], reverse=True)
+    sort_data = sorted(datas.items(), key=lambda x: float(x[1][:-1]), reverse=True)
     for data in sort_data:
         tgMsg += (str(data[0]+" "+str(data[1])+"\n"))
     telegram_bot_sendtext(tgMsg)
 
 #alert when bot start
-telegram_bot_sendtext("Bot Reboot")
+telegram_bot_sendtext("Bot Reboot 03161000")
 
 while True:
     try:
