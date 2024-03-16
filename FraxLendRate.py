@@ -19,7 +19,7 @@ def telegram_bot_sendtext(bot_message):
    return response.json()
 
 def getNameAndLendRate(tableRow):
-    return(tableRow[0].div.div.div.text, tableRow[7].div.div.span.text)
+    return(tableRow[0].div.div.div.text, tableRow[7].div.div.span.text, tableRow[1].div.div.div.text)
 
 def getFraxLendRate():
     driver = webdriver.Firefox()
@@ -35,7 +35,11 @@ def getFraxLendRate():
     for row in allTable:
         allCellinRow = row.findAll("div", class_="frax-Table-cell")
         rawData = getNameAndLendRate(allCellinRow)
-        data[rawData[0]] = rawData[1]
+        pairName = rawData[0]
+        # handle same collateral
+        if (rawData[0] in data):
+            pairName = rawData[0] + "(" + rawData[2] + ")"
+        data[pairName] = rawData[1]
     return data
 
 def updateFraxLendRate():
